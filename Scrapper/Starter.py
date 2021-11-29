@@ -52,6 +52,8 @@ def get_adjective_explanation(article, spelling):
         explanation = explanation.split(key)[-1]
         
     explanation = explanation.replace('\n', '').replace('\t', '').replace('   ', ' ').replace('  ', ' ')
+    if explanation[0] == ' ' : explanation = explanation[1:]
+    explanation = explanation.lower()
     return explanation
 
 
@@ -75,11 +77,11 @@ def write_to_csv(file, contents):
     writer = csv.writer(file, delimiter=',')
     writer.writerows(contents)
 
-def Start(number_of_pages=361, csv_filename='kata_sifat_raw.csv'):
+def Start(number_of_pages=360, csv_filename='kata_sifat_raw.csv'):
     '''Start to scrap'''
     print('Starting...')
     with open(csv_filename, 'w', newline='') as csv_file:    
-        for i in tqdm(range(number_of_pages)):
+        for i in tqdm(range(1, number_of_pages + 1)):
             contents = Scrap(i)
             write_to_csv(csv_file, contents)
     print('Done!')
