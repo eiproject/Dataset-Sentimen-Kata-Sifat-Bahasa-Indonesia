@@ -14,8 +14,8 @@ Google Sheet: [Indonesian Adjective (Kata Sifat)](https://docs.google.com/spread
 
 | Word | URL | Spelling | Explanation | Sentiment |
 | ---- | --- | -------- | ----------- | --------- |
-| abadi | https://kbbi.kata.web.id/abadi/ | aba.di | kekal; tidak berkesudahan: di dunia ini tidak ada yang abadi | 2 |
-| abaktinal | https://kbbi.kata.web.id/abaktinal/ | abak.ti.nal | istilah biologi berkenaan dengan sisi tubuh yang tidak mengandung mulut, seperti pada binatang laut | 0 |
+| abadi | <https://kbbi.kata.web.id/abadi/> | aba.di | kekal; tidak berkesudahan: di dunia ini tidak ada yang abadi | 2 |
+| abaktinal | <https://kbbi.kata.web.id/abaktinal/> | abak.ti.nal | istilah biologi berkenaan dengan sisi tubuh yang tidak mengandung mulut, seperti pada binatang laut | 0 |
 | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... |
 
