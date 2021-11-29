@@ -1,6 +1,23 @@
 import requests
+import csv
+from tqdm import tqdm
 from bs4 import BeautifulSoup
 from .global_var import URL
+
+
+def get_word(article):
+    row = article.find('dl')
+    a_in_dt = row.find('dt').find('a')
+    word = a_in_dt.text
+    return word
+
+
+def get_url(article):
+    row = article.find('dl')
+    a_in_dt = row.find('dt').find('a')
+    url = a_in_dt['href']
+    return url
+
 
 def get_spelling(article):
     row = article.find('dl')
@@ -21,6 +38,7 @@ def get_spelling(article):
     
     return spelling
 
+
 def get_adjective_explanation(article, spelling):
     row = article.find('dl')
     full_explanation = row.find('dd')
@@ -36,22 +54,11 @@ def get_adjective_explanation(article, spelling):
     explanation = explanation.replace('\n', '').replace('\t', '').replace('   ', ' ').replace('  ', ' ')
     return explanation
 
-def get_word(article):
-    row = article.find('dl')
-    a_in_dt = row.find('dt').find('a')
-    word = a_in_dt.text
-    return word
 
-def get_url(article):
-    row = article.find('dl')
-    a_in_dt = row.find('dt').find('a')
-    url = a_in_dt['href']
-    return url
-
-def Start():
-    # URL = "https://kbbi.kata.web.id/kelas-kata/kata-sifat/"
-    page = requests.get(URL)
-
+def Scrap(page_number):
+    contents = []
+    
+    page = requests.get(URL.replace('PAGE_NUMBER', str(page_number)))
     soup = BeautifulSoup(page.text, "html.parser")
     main = soup.find(id='main')
     for article in main.find_all('article'):
@@ -60,8 +67,19 @@ def Start():
         spelling = get_spelling(article)
         explanation = get_adjective_explanation(article, spelling)
 
-        print(word, url)
-        print(spelling)
-        print(explanation)
-        
-    return 0
+        contents.append([word, url, spelling, explanation])
+    
+    return contents
+
+def write_to_csv(file, contents):
+    writer = csv.writer(file, delimiter=',')
+    writer.writerows(contents)
+
+def Start(number_of_pages=361, csv_filename='kata_sifat_raw.csv'):
+    '''Start to scrap'''
+    print('Starting...')
+    with open(csv_filename, 'w', newline='') as csv_file:    
+        for i in tqdm(range(number_of_pages)):
+            contents = Scrap(i)
+            write_to_csv(csv_file, contents)
+    print('Done!')
