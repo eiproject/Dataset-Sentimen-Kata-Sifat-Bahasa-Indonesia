@@ -1,4 +1,4 @@
-# Sentiment Dataset About Indonesian Adjective Words
+# Indonesian Adjective Words Sentiment Dataset
 
 Indonesian adjective sentiment dataset with scrapper tools
 
