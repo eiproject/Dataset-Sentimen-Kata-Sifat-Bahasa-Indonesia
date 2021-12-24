@@ -8,7 +8,9 @@ In this repository there is a Scrapper tool that can be used
 
 ## Dataset
 
-Google Sheet: [Indonesian Adjective (Kata Sifat)](https://docs.google.com/spreadsheets/d/1LLLYKrt0shFx4P_2CW0jc970zPebvgd3h3f023MaDIU/edit?usp=sharing) *Lebeling in progress*
+Currently scoring on : [Indonesian Adjective (Kata Sifat)](https://scoring.eiproject.live/indonesian-adjective) *Lebeling in progress*
+
+I really appreciated if you can help me to scoring this dataset. Thank you very much!
 
 ## Data Table
 
