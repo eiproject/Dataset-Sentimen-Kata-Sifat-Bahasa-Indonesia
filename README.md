@@ -52,6 +52,8 @@ Explanation = Detail and explanation
 | ... | ... |
 
 ```text
+Description for each column:
+
 ID = Foreign key (UID) from indonesian-adjective-sentiment-raw.csv
 Score = Sentiment label
 ```
